@@ -9,13 +9,12 @@ function App() {
     const [boardGames, setBoardGames] = useState([])
 
     useEffect(()=>{
-        // console.log('this is in the useEffect')
-        axios.get('https://api.boardgameatlas.com/api/search?category=adventure&client_id=WEWILLADDTHISTONIGHT')
+        axios.get(`https://api.boardgameatlas.com/api/search?category=adventure&client_id=${process.env.REACT_APP_API_KEY}`)
         .then(res => setBoardGames(res.data.games))
     },[])
 
+    console.log(process.env)
 
-    // console.log(boardGames)
     return (
         <div className="App">
             <Header />
