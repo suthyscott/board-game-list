@@ -7,19 +7,26 @@ import { useState, useEffect } from "react"
 
 function App() {
     const [boardGames, setBoardGames] = useState([])
+    const [wishlist, setWishlist] = useState([])
 
     useEffect(()=>{
         axios.get(`https://api.boardgameatlas.com/api/search?category=adventure&client_id=${process.env.REACT_APP_API_KEY}`)
         .then(res => setBoardGames(res.data.games))
     },[])
 
-    console.log(process.env)
+    // function to add game to wishlist array
+    const addToWishlist = game => {
+        console.log(game)
+        setWishlist(currentWishlist => [...currentWishlist, game])
+    }
+
+    console.log(wishlist)
 
     return (
         <div className="App">
             <Header />
             <div id="main-container">
-                <BoardGamesDisplay boardGames={boardGames}/>
+                <BoardGamesDisplay boardGames={boardGames} addToWishlist={addToWishlist}/>
                 <Wishlist />
             </div>
         </div>
