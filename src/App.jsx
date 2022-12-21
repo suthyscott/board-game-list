@@ -20,6 +20,12 @@ function App() {
         setWishlist(currentWishlist => [...currentWishlist, game])
     }
 
+    const removeFromWishlist = id => {
+        const index = wishlist.findIndex(game => game.id = id)
+        wishlist.splice(index, 1)
+        setWishlist([...wishlist])
+    }
+
     console.log(wishlist)
 
     return (
@@ -27,7 +33,7 @@ function App() {
             <Header />
             <div id="main-container">
                 <BoardGamesDisplay boardGames={boardGames} addToWishlist={addToWishlist}/>
-                <Wishlist />
+                <Wishlist wishlist={wishlist} removeFromWishlist={removeFromWishlist}/>
             </div>
         </div>
     )
