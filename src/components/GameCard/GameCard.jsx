@@ -2,7 +2,6 @@ import React from 'react'
 import './GameCard.css'
 
 const GameCard = ({gameInfo, addToWishlist, removeFromWishlist}) => {
-  console.log(addToWishlist, removeFromWishlist)
   return (
     <div className='game-card-container'>
       <h2> {gameInfo.name} </h2>

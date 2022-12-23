@@ -2,9 +2,9 @@ import "./Header.css"
 
 const Header = () => {
     return (
-        <div id="header-container">
-            Header.jsx
-        </div>
+        <header id="header-container">
+            <h1>Welcome To Board Game List!</h1>
+        </header>
     )
 }
 
